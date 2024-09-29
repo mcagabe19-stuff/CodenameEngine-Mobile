@@ -1,6 +1,17 @@
 name: Mobile + Release
 on: workflow_dispatch
 jobs:
+  get-commit-hash:
+    runs-on: ubuntu-latest
+    outputs:
+      commit_hash: ${{ steps.get-commit-hash.outputs.commit_hash }}
+    steps:
+      - name: Get latest commit hash
+        id: commit_hash
+        run: |
+          commit_hash=${GITHUB_SHA::7}
+          echo "Latest commit hash is $commit_hash"
+          echo "::set-output name=commit_hash::$commit_hash"
   Mobile:
     runs-on: ${{matrix.os}}
     strategy:
@@ -75,8 +86,8 @@ jobs:
         with:
           repo_token: "${{ secrets.GITHUB_TOKEN }}"
           prerelease: true
-          automatic_release_tag: "dev-ca565de"
-          title: "DevBuild ca565de"
+          automatic_release_tag: "dev-${{ needs.get-commit-hash.outputs.commit_hash }}"
+          title: "DevBuild ${{ needs.get-commit-hash.outputs.commit_hash }}"
           files: |
             /home/runner/*.apk
             /home/runner/*.zip
