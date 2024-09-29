@@ -65,7 +65,7 @@ jobs:
           path: export/release/ios/build/Release-iphoneos/*.zip
           if-no-files-found: error
   Releaser:
-    needs: [Mobile]
+    needs: [get-commit-hash, Mobile]
     runs-on: ubuntu-latest
     permissions: write-all
     steps:
