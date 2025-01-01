@@ -17,7 +17,7 @@ class FlxAnimate extends flxanimate.FlxAnimate {
 		if (alpha == 0 || colorTransform != null && (colorTransform.alphaMultiplier == 0 || colorTransform.alphaOffset == -255) || limb == null || limb.type == EMPTY)
 			return;
 
-		if (blendMode != null)
+		if (blendMode == null)
 			blendMode = BlendMode.NORMAL;
 
 		for (camera in cameras)
