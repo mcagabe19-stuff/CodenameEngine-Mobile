@@ -20,7 +20,6 @@
 	<!-- Documentation and other features -->
 	<git name="away3d" url="https://github.com/CodenameCrew/away3d" />
 	<!-- <lib name="dox" /> -->
-	<lib name="format" />
 	<lib name="markdown" />
 
 	<!-- Android Specific -->
