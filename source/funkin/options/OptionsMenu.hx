@@ -38,6 +38,8 @@ class OptionsMenu extends TreeMenu {
 		}
 	];
 
+	var bg:FlxSprite;
+
 	public override function create() {
 		super.create();
 
@@ -52,7 +54,7 @@ class OptionsMenu extends TreeMenu {
 
 		DiscordUtil.call("onMenuLoaded", ["Options Menu"]);
 
-		var bg:FlxSprite = new FlxSprite(-80).loadAnimatedGraphic(Paths.image('menus/menuBGBlue'));
+		bg = new FlxSprite(-80).loadAnimatedGraphic(Paths.image('menus/menuBGBlue'));
 		// bg.scrollFactor.set();
 		bg.scale.set(1.15, 1.15);
 		bg.updateHitbox();
