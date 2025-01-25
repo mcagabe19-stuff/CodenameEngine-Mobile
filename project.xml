@@ -150,6 +150,9 @@
 	<!-- Comment this out to disable dark mode windows -->
 	<define name="DARK_MODE_WINDOW"/>
 
+	<!-- Disable a optimization, to allow reflection to use more functions -->
+	<define name="FLX_NO_GENERIC" />
+
 	<define name="TOUCH_CONTROLS" if="mobile || web" />
 
 	<haxedef name="VIDEO_CUTSCENES" if="VIDEO_CUTSCENES" />
